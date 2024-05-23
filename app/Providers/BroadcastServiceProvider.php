@@ -7,13 +7,12 @@
  * @version 1.0.0
  * @date    15 Fevrier 2023
  */
-
 namespace App\Providers;
 
 use Two\Http\Request;
 use Two\Routing\Router;
 use Two\Support\Facades\Broadcast;
-use Two\Support\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 
 
 class BroadcastServiceProvider extends ServiceProvider

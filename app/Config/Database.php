@@ -25,9 +25,9 @@ return array(
         'mysql' => array(
             'driver'    => 'mysql',
             'hostname'  => 'localhost',
-            'database'  => 'Two_dev',
-            'username'  => 'Two_dev',
-            'password'  => 'Two_dev',
+            'database'  => '',
+            'username'  => '',
+            'password'  => '',
             'prefix'    => PREFIX,
             'charset'   => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

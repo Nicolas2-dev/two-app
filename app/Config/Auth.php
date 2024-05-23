@@ -21,7 +21,7 @@ return array(
     */
 
     'defaults' => array(
-        'guard'    => 'web',
+        'guard'    => 'user',
         'reminder' => 'users',
     ),
 
@@ -38,12 +38,12 @@ return array(
     | les utilisateurs sont en fait extraits de votre base de données ou d'un autre stockage
     | mécanismes utilisés par cette application pour conserver les données de votre utilisateur.
     |
-    | Pris en charge : "session", "jeton"
+    | Pris en charge : "session", "token"
     |
     */
 
     'guards' => array(
-        'web' => array(
+        'user' => array(
             'driver'   => 'session',
             'provider' => 'users',
 
@@ -55,6 +55,15 @@ return array(
         'api' => array(
             'driver'   => 'token',
             'provider' => 'users',
+        ),
+        'admin' => array(
+            'driver'   => 'session',
+            'provider' => 'admins',
+
+            'paths' => array(
+                'authorize' => 'admin/login',
+                'dashboard' => 'admin/dashboard',
+            ),
         ),
     ),
 
@@ -71,15 +80,19 @@ return array(
     | sources qui représentent chaque modèle / table. Ces sources peuvent alors
     | être affecté à tous les gardes d'authentification supplémentaires que vous avez définis.
     |
-    | Pris en charge : "base de données", "étendue"
+    | Pris en charge : "database", "extended"
     |
     */
 
     'providers' => array(
         'users' => array(
             'driver' => 'extended',
-            'model'  => 'App\Models\User',
+            'model'  => 'Modules\TwoUsers\Models\User',
         ),
+        'admins' => array(
+            'driver' => 'extended',
+            'model'  => 'Modules\TwoAuthors\Models\Author',
+        ), 
     ),
 
     /*

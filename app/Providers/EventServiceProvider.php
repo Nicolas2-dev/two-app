@@ -7,11 +7,10 @@
  * @version 1.0.0
  * @date    15 Fevrier 2023
  */
-
 namespace App\Providers;
 
 use Two\Events\Dispatcher;
-use Two\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Two\Application\Providers\EventServiceProvider as ServiceProvider;
 
 
 class EventServiceProvider extends ServiceProvider

@@ -7,18 +7,17 @@
  * @version 1.0.0
  * @date    15 Fevrier 2023
  */
-
 namespace App\Middleware;
-
-use Two\Foundation\Application;
-use Two\Http\Response;
-use Two\Support\Str;
-
-use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
-use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 use Closure;
 use PDOException;
+
+use Two\Support\Str;
+use Two\Http\Response;
+use Two\Application\Two;
+
+use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 
 class HandleProfiling
@@ -26,7 +25,7 @@ class HandleProfiling
     /**
      * L'instance de l'application.
      *
-     * @var \Two\Foundation\Application
+     * @var Two\Application\Two
      */
     protected $app;
 
@@ -34,10 +33,10 @@ class HandleProfiling
     /**
      * Créez une nouvelle instance de middleware.
      *
-     * @param  \Two\Foundation\Application  $app
+     * @param  Two\Application\Two  $app
      * @return void
      */
-    public function __construct(Application $app)
+    public function __construct(Two $app)
     {
         $this->app = $app;
     }

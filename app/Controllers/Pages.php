@@ -7,13 +7,12 @@
  * @version 1.0.0
  * @date    15 Fevrier 2023
  */
-
 namespace App\Controllers;
+
+use Modules\TwoCore\Core\BaseController;
 
 use Two\Support\Facades\View;
 use Two\Support\Str;
-
-use App\Controllers\BaseController;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -68,6 +67,8 @@ class Pages extends BaseController
             str_replace(array('-', '_'), ' ', $subPage ?: ($page ?: 'Home'))
         );
 
+        //toto();
+        
         return View::make($view)->shares('title', $title);
     }
 }

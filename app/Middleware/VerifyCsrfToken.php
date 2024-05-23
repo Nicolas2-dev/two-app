@@ -7,10 +7,9 @@
  * @version 1.0.0
  * @date    15 Fevrier 2023
  */
-
 namespace App\Middleware;
 
-use Two\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
+use Two\Application\Middleware\Http\VerifyCsrfToken as BaseVerifier;
 
 
 class VerifyCsrfToken extends BaseVerifier

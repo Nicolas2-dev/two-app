@@ -7,30 +7,29 @@
  * @version 1.0.0
  * @date    15 Fevrier 2023
  */
-
 namespace App\Platform\Exceptions;
 
-use Two\Auth\AuthenticationException;
-use Two\Foundation\Exceptions\Handler as ExceptionHandler;
+use Exception;
+
 use Two\Http\Request;
-use Two\Session\TokenMismatchException;
+use Two\Support\Facades\View;
 use Two\Support\Facades\Config;
 use Two\Support\Facades\Redirect;
 use Two\Support\Facades\Response;
-use Two\Support\Facades\View;
-use Two\Debug\Exception\FlattenException;
+use Two\Exceptions\TwoHandlerException;
+use Two\Exceptions\Exception\FlattenException;
+use Two\Auth\Exception\AuthenticationException;
+use Two\Session\Exception\TokenMismatchException;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 use Whoops\Run as WhoopsRun;
-use Whoops\Handler\JsonResponseHandler as WhoopsJsonResponseHandler;
 use Whoops\Handler\PrettyPageHandler as WhoopsPrettyPageHandler;
+use Whoops\Handler\JsonResponseHandler as WhoopsJsonResponseHandler;
 
-use Exception;
 
-
-class Handler extends ExceptionHandler
+class AppHandler extends TwoHandlerException
 {
     /**
      * Une liste des types d'exception qui ne doivent pas être signalés.
@@ -38,10 +37,10 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = array(
-        'Two\Auth\AuthenticationException',
-        'Two\Database\ORM\ModelNotFoundException',
-        'Two\Session\TokenMismatchException',
-        'Two\Validation\ValidationException',
+        'Two\Auth\Exception\AuthenticationException',
+        'Two\Database\Exception\ModelNotFoundException',
+        'Two\Session\Exception\TokenMismatchException',
+        'Two\Validation\Exception\ValidationException',
         'Symfony\Component\HttpKernel\Exception\HttpException',
     );
 
@@ -203,7 +202,7 @@ class Handler extends ExceptionHandler
      * Convertir une exception d'authentification en une réponse non authentifiée.
      *
      * @param  \Two\Http\Request  $request
-     * @param  \Two\Auth\AuthenticationException  $exception
+     * @param  \Two\Auth\Exception\AuthenticationException  $exception
      * @return \Two\Http\Response
      */
     protected function unauthenticated(Request $request, AuthenticationException $exception)
@@ -216,6 +215,9 @@ class Handler extends ExceptionHandler
 
         // Nous allons utiliser la première garde.
         $guard = array_shift($guards);
+
+        //dump($guard); die();
+
 
         $uri = Config::get("auth.guards.{$guard}.paths.authorize", 'login');
 

@@ -7,11 +7,10 @@
  * @version 1.0.0
  * @date    15 Fevrier 2023
  */
-
 namespace App\Providers;
 
 use Two\Routing\Router;
-use Two\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Two\Application\Providers\RouteServiceProvider as ServiceProvider;
 
 
 class RouteServiceProvider extends ServiceProvider

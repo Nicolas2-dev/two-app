@@ -23,16 +23,16 @@ return array (
     17 => 'Two\\Session\\SessionServiceProvider',
     18 => 'Two\\Validation\\ValidationServiceProvider',
     19 => 'Two\\View\\ViewServiceProvider',
-    20 => 'Two\\Cache\\ConsoleServiceProvider',
-    21 => 'Two\\Foundation\\Providers\\ConsoleSupportServiceProvider',
-    22 => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    23 => 'Two\\Database\\MigrationServiceProvider',
-    24 => 'Two\\Database\\SeedingServiceProvider',
-    25 => 'Two\\Localization\\ConsoleServiceProvider',
-    26 => 'Two\\Notifications\\ConsoleServiceProvider',
-    27 => 'Two\\Packages\\ConsoleServiceProvider',
-    28 => 'Two\\Routing\\ConsoleServiceProvider',
-    29 => 'Two\\Session\\ConsoleServiceProvider',
+    20 => 'Two\\Console\\Forge\\Cache\\ConsoleServiceProvider',
+    21 => 'Two\\Console\\TwoConsoleServiceProvider',
+    22 => 'Two\\Console\\ForgeServiceProvider',
+    23 => 'Two\\Console\\Forge\\Database\\MigrationServiceProvider',
+    24 => 'Two\\Console\\Forge\\Database\\SeedingServiceProvider',
+    25 => 'Two\\Console\\Forge\\Localization\\ConsoleServiceProvider',
+    26 => 'Two\\Console\\Forge\\Notifications\\ConsoleServiceProvider',
+    27 => 'Two\\Console\\Forge\\Packages\\ConsoleServiceProvider',
+    28 => 'Two\\Console\\Forge\\Routing\\ConsoleServiceProvider',
+    29 => 'Two\\Console\\Forge\\Session\\ConsoleServiceProvider',
     30 => 'App\\Providers\\AppServiceProvider',
     31 => 'App\\Providers\\AuthServiceProvider',
     32 => 'App\\Providers\\EventServiceProvider',
@@ -51,7 +51,7 @@ return array (
     7 => 'Two\\Packages\\PackageServiceProvider',
     8 => 'Two\\Pagination\\PaginationServiceProvider',
     9 => 'Two\\Session\\SessionServiceProvider',
-    10 => 'Two\\Packages\\ConsoleServiceProvider',
+    10 => 'Two\\Console\\Forge\\Packages\\ConsoleServiceProvider',
     11 => 'App\\Providers\\AppServiceProvider',
     12 => 'App\\Providers\\AuthServiceProvider',
     13 => 'App\\Providers\\EventServiceProvider',
@@ -61,8 +61,8 @@ return array (
   'deferred' => 
   array (
     'Two\\Bus\\Dispatcher' => 'Two\\Bus\\BusServiceProvider',
-    'Two\\Bus\\DispatcherInterface' => 'Two\\Bus\\BusServiceProvider',
-    'Two\\Bus\\QueueingDispatcherInterface' => 'Two\\Bus\\BusServiceProvider',
+    'Two\\Bus\\Contracts\\DispatcherInterface' => 'Two\\Bus\\BusServiceProvider',
+    'Two\\Bus\\Contracts\\QueueingDispatcherInterface' => 'Two\\Bus\\BusServiceProvider',
     'cache' => 'Two\\Cache\\CacheServiceProvider',
     'cache.store' => 'Two\\Cache\\CacheServiceProvider',
     'memcached.connector' => 'Two\\Cache\\CacheServiceProvider',
@@ -91,54 +91,54 @@ return array (
     'markdown' => 'Two\\View\\ViewServiceProvider',
     'markdown.compiler' => 'Two\\View\\ViewServiceProvider',
     'section' => 'Two\\View\\ViewServiceProvider',
-    'command.cache.clear' => 'Two\\Cache\\ConsoleServiceProvider',
-    'command.cache.forget' => 'Two\\Cache\\ConsoleServiceProvider',
-    'command.cache.table' => 'Two\\Cache\\ConsoleServiceProvider',
-    'composer' => 'Two\\Foundation\\Providers\\ConsoleSupportServiceProvider',
-    'forge' => 'Two\\Foundation\\Providers\\ConsoleSupportServiceProvider',
-    'command.asset.publish' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.config.publish' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.clear-compiled' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.clear-log' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.console.make' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.down' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.environment' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.event.make' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.job.make' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.key.generate' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.listener.make' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.model.make' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.optimize' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.policy.make' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.provider.make' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.request.make' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.serve' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.shared.make' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.assets-link' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.up' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.vendor.publish' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.view.clear' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'command.view.publish' => 'Two\\Foundation\\Providers\\ForgeServiceProvider',
-    'migrator' => 'Two\\Database\\MigrationServiceProvider',
-    'migration.repository' => 'Two\\Database\\MigrationServiceProvider',
-    'command.migrate' => 'Two\\Database\\MigrationServiceProvider',
-    'command.migrate.rollback' => 'Two\\Database\\MigrationServiceProvider',
-    'command.migrate.reset' => 'Two\\Database\\MigrationServiceProvider',
-    'command.migrate.refresh' => 'Two\\Database\\MigrationServiceProvider',
-    'command.migrate.install' => 'Two\\Database\\MigrationServiceProvider',
-    'migration.creator' => 'Two\\Database\\MigrationServiceProvider',
-    'command.migrate.make' => 'Two\\Database\\MigrationServiceProvider',
-    'command.migrate.status' => 'Two\\Database\\MigrationServiceProvider',
-    'seeder' => 'Two\\Database\\SeedingServiceProvider',
-    'command.seed' => 'Two\\Database\\SeedingServiceProvider',
-    'command.seeder.make' => 'Two\\Database\\SeedingServiceProvider',
-    'command.languages.update' => 'Two\\Localization\\ConsoleServiceProvider',
-    'command.notification.table' => 'Two\\Notifications\\ConsoleServiceProvider',
-    'command.notification.make' => 'Two\\Notifications\\ConsoleServiceProvider',
-    'command.controller.make' => 'Two\\Routing\\ConsoleServiceProvider',
-    'command.middleware.make' => 'Two\\Routing\\ConsoleServiceProvider',
-    'command.route.list' => 'Two\\Routing\\ConsoleServiceProvider',
-    'command.session.database' => 'Two\\Session\\ConsoleServiceProvider',
+    'command.cache.clear' => 'Two\\Console\\Forge\\Cache\\ConsoleServiceProvider',
+    'command.cache.forget' => 'Two\\Console\\Forge\\Cache\\ConsoleServiceProvider',
+    'command.cache.table' => 'Two\\Console\\Forge\\Cache\\ConsoleServiceProvider',
+    'composer' => 'Two\\Console\\TwoConsoleServiceProvider',
+    'forge' => 'Two\\Console\\TwoConsoleServiceProvider',
+    'command.asset.publish' => 'Two\\Console\\ForgeServiceProvider',
+    'command.config.publish' => 'Two\\Console\\ForgeServiceProvider',
+    'command.clear-compiled' => 'Two\\Console\\ForgeServiceProvider',
+    'command.clear-log' => 'Two\\Console\\ForgeServiceProvider',
+    'command.console.make' => 'Two\\Console\\ForgeServiceProvider',
+    'command.down' => 'Two\\Console\\ForgeServiceProvider',
+    'command.environment' => 'Two\\Console\\ForgeServiceProvider',
+    'command.event.make' => 'Two\\Console\\ForgeServiceProvider',
+    'command.job.make' => 'Two\\Console\\ForgeServiceProvider',
+    'command.key.generate' => 'Two\\Console\\ForgeServiceProvider',
+    'command.listener.make' => 'Two\\Console\\ForgeServiceProvider',
+    'command.model.make' => 'Two\\Console\\ForgeServiceProvider',
+    'command.optimize' => 'Two\\Console\\ForgeServiceProvider',
+    'command.policy.make' => 'Two\\Console\\ForgeServiceProvider',
+    'command.provider.make' => 'Two\\Console\\ForgeServiceProvider',
+    'command.request.make' => 'Two\\Console\\ForgeServiceProvider',
+    'command.serve' => 'Two\\Console\\ForgeServiceProvider',
+    'command.shared.make' => 'Two\\Console\\ForgeServiceProvider',
+    'command.assets-link' => 'Two\\Console\\ForgeServiceProvider',
+    'command.up' => 'Two\\Console\\ForgeServiceProvider',
+    'command.vendor.publish' => 'Two\\Console\\ForgeServiceProvider',
+    'command.view.clear' => 'Two\\Console\\ForgeServiceProvider',
+    'command.view.publish' => 'Two\\Console\\ForgeServiceProvider',
+    'migrator' => 'Two\\Console\\Forge\\Database\\MigrationServiceProvider',
+    'migration.repository' => 'Two\\Console\\Forge\\Database\\MigrationServiceProvider',
+    'command.migrate' => 'Two\\Console\\Forge\\Database\\MigrationServiceProvider',
+    'command.migrate.rollback' => 'Two\\Console\\Forge\\Database\\MigrationServiceProvider',
+    'command.migrate.reset' => 'Two\\Console\\Forge\\Database\\MigrationServiceProvider',
+    'command.migrate.refresh' => 'Two\\Console\\Forge\\Database\\MigrationServiceProvider',
+    'command.migrate.install' => 'Two\\Console\\Forge\\Database\\MigrationServiceProvider',
+    'migration.creator' => 'Two\\Console\\Forge\\Database\\MigrationServiceProvider',
+    'command.migrate.make' => 'Two\\Console\\Forge\\Database\\MigrationServiceProvider',
+    'command.migrate.status' => 'Two\\Console\\Forge\\Database\\MigrationServiceProvider',
+    'seeder' => 'Two\\Console\\Forge\\Database\\SeedingServiceProvider',
+    'command.seed' => 'Two\\Console\\Forge\\Database\\SeedingServiceProvider',
+    'command.seeder.make' => 'Two\\Console\\Forge\\Database\\SeedingServiceProvider',
+    'command.languages.update' => 'Two\\Console\\Forge\\Localization\\ConsoleServiceProvider',
+    'command.notification.table' => 'Two\\Console\\Forge\\Notifications\\ConsoleServiceProvider',
+    'command.notification.make' => 'Two\\Console\\Forge\\Notifications\\ConsoleServiceProvider',
+    'command.controller.make' => 'Two\\Console\\Forge\\Routing\\ConsoleServiceProvider',
+    'command.middleware.make' => 'Two\\Console\\Forge\\Routing\\ConsoleServiceProvider',
+    'command.route.list' => 'Two\\Console\\Forge\\Routing\\ConsoleServiceProvider',
+    'command.session.database' => 'Two\\Console\\Forge\\Session\\ConsoleServiceProvider',
   ),
   'when' => 
   array (
@@ -172,31 +172,31 @@ return array (
     'Two\\View\\ViewServiceProvider' => 
     array (
     ),
-    'Two\\Cache\\ConsoleServiceProvider' => 
+    'Two\\Console\\Forge\\Cache\\ConsoleServiceProvider' => 
     array (
     ),
-    'Two\\Foundation\\Providers\\ConsoleSupportServiceProvider' => 
+    'Two\\Console\\TwoConsoleServiceProvider' => 
     array (
     ),
-    'Two\\Foundation\\Providers\\ForgeServiceProvider' => 
+    'Two\\Console\\ForgeServiceProvider' => 
     array (
     ),
-    'Two\\Database\\MigrationServiceProvider' => 
+    'Two\\Console\\Forge\\Database\\MigrationServiceProvider' => 
     array (
     ),
-    'Two\\Database\\SeedingServiceProvider' => 
+    'Two\\Console\\Forge\\Database\\SeedingServiceProvider' => 
     array (
     ),
-    'Two\\Localization\\ConsoleServiceProvider' => 
+    'Two\\Console\\Forge\\Localization\\ConsoleServiceProvider' => 
     array (
     ),
-    'Two\\Notifications\\ConsoleServiceProvider' => 
+    'Two\\Console\\Forge\\Notifications\\ConsoleServiceProvider' => 
     array (
     ),
-    'Two\\Routing\\ConsoleServiceProvider' => 
+    'Two\\Console\\Forge\\Routing\\ConsoleServiceProvider' => 
     array (
     ),
-    'Two\\Session\\ConsoleServiceProvider' => 
+    'Two\\Console\\Forge\\Session\\ConsoleServiceProvider' => 
     array (
     ),
   ),

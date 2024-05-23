@@ -7,25 +7,20 @@
  * @version 1.0.0
  * @date    15 Fevrier 2023
  */
-
-namespace App\Controllers;
-
-use Two\Foundation\Auth\Access\AuthorizesRequestsTrait;
-use Two\Foundation\Bus\DispatchesJobsTrait;
-use Two\Foundation\Validation\ValidatesRequestsTrait;
-
-use Two\Http\Request;
-use Two\Routing\Controller;
-
-use Two\Contracts\RenderableInterface;
-
-use Two\Support\Facades\App;
-use Two\Support\Facades\Config;
-use Two\Support\Facades\Language;
-use Two\Support\Facades\View;
-use Two\Support\Str;
+namespace Modules\TwoCore\Core;
 
 use BadMethodCallException;
+
+use Two\Support\Str;
+use Two\Http\Request;
+use Two\Support\Facades\View;
+use Two\Support\Facades\Config;
+use Two\Support\Facades\Language;
+use Two\Routing\Controller\Controller;
+use Two\Bus\Traits\DispatchesJobsTrait;
+use Two\Auth\Traits\AuthorizesRequestsTrait;
+use Two\Application\Contracts\RenderableInterface;
+use Two\Validation\Traits\ValidatesRequestsTrait;
 
 
 class BaseController extends Controller

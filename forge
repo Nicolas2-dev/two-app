@@ -27,15 +27,14 @@ require BASEPATH .'vendor' .DS .'autoload.php';
 $app = require_once APPPATH .'Platform' .DS .'Bootstrap.php';
 
 //--------------------------------------------------------------------------
-// Charger l'application console Forge
+// Charger la console Forge
 //--------------------------------------------------------------------------
 
-use Two\Console\Application as ConsoleApplication;
-
+use Two\Console\TwoConsole;
 
 $app->setRequestForConsoleEnvironment();
 
-$forge = ConsoleApplication::start($app);
+$forge = TwoConsole::start($app);
 
 //--------------------------------------------------------------------------
 // Exécutez l'application Forge

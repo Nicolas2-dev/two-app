@@ -7,11 +7,11 @@
  * @version 1.0.0
  * @date    15 Fevrier 2023
  */
-
 namespace App\Providers;
 
-use Two\Foundation\Support\Providers\AppServiceProvider as ServiceProvider;
+use Two\Application\Providers\ServiceProvider as ServiceProvider;
 use Two\Support\Facades\Schema;
+
 
 class AppServiceProvider extends ServiceProvider
 {

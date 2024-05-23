@@ -23,7 +23,7 @@ return array(
     /**
      * L'URL du site Web.
      */
-    'url' => 'http://www.Two.dev/',
+    'url' => 'http://localhost:8000/',
 
     /**
     * L'adresse e-mail de l'administrateur.
@@ -43,7 +43,7 @@ return array(
     /**
      * Le nom du thème par défaut ou false pour désactiver l'utilisation des thèmes.
      */
-    'theme' => false,
+    'theme' => 'TwoBoost',
 
     /**
      * La locale par défaut qui sera utilisée par la traduction.
@@ -59,7 +59,7 @@ return array(
     /**
      * La clé de cryptage.
      */
-    'key' => 'SomeRandomStringThere_1234567890',
+    'key' => 'KSHKvXqVsrnfs5BpUZjUdDbLPTjjDoD3',
 
     /*
     |--------------------------------------------------------------- -------------------------
@@ -80,21 +80,22 @@ return array(
      * La pile middleware de l'application.
      */
     'middleware' => array(
-        'Two\Foundation\Http\Middleware\CheckForMaintenanceMode',
-        'Two\Routing\Middleware\DispatchAssetFiles',
+        'Two\Application\Middleware\Http\CheckForMaintenanceMode',
+        'Two\Application\Middleware\Routing\DispatchAssetFiles',
     ),
 
     /**
      * Les groupes de middleware de route de l'application.
      */
     'middlewareGroups' => array(
-        'web' => array(
+        'web' => array(            
+            'Shared\Forensics\Middleware\HandleProfiling',
             'App\Middleware\HandleProfiling',
             'App\Middleware\EncryptCookies',
-            'Two\Cookie\Middleware\AddQueuedCookiesToResponse',
-            'Two\Session\Middleware\StartSession',
-            'Two\Localization\Middleware\SetupLanguage',
-            'Two\View\Middleware\ShareErrorsFromSession',
+            'Two\Application\Middleware\Cookie\AddQueuedCookiesToResponse',
+            'Two\Application\Middleware\Sessions\StartSession',
+            'Two\Application\Middleware\Localization\SetupLanguage',
+            'Two\Application\Middleware\View\ShareErrorsFromSession',
             'App\Middleware\VerifyCsrfToken',
             //'App\Middleware\MarkNotificationAsRead',
         ),
@@ -107,9 +108,9 @@ return array(
      * Middleware de route de l'Application.
      */
     'routeMiddleware' => array(
-        'auth'     => 'Two\Auth\Middleware\Authenticate',
+        'auth'     => 'Two\Application\Middleware\Auth\Authenticate',
         'guest'    => 'App\Middleware\RedirectIfAuthenticated',
-        'throttle' => 'Two\Routing\Middleware\ThrottleRequests',
+        'throttle' => 'Two\Application\Middleware\Routing\ThrottleRequests',
     ),
 
     /**
@@ -138,16 +139,17 @@ return array(
         'Two\View\ViewServiceProvider',
 
         // Les fournisseurs Forge.
-        'Two\Cache\ConsoleServiceProvider',
-        'Two\Foundation\Providers\ConsoleSupportServiceProvider',
-        'Two\Foundation\Providers\ForgeServiceProvider',
-        'Two\Database\MigrationServiceProvider',
-        'Two\Database\SeedingServiceProvider',
-        'Two\Localization\ConsoleServiceProvider',
-        'Two\Notifications\ConsoleServiceProvider',
-        'Two\Packages\ConsoleServiceProvider',
-        'Two\Routing\ConsoleServiceProvider',
-        'Two\Session\ConsoleServiceProvider',
+        'Two\Console\Forge\Cache\ConsoleServiceProvider',
+        'Two\Console\TwoConsoleServiceProvider',
+        'Two\Console\ForgeServiceProvider',
+        
+        'Two\Console\Forge\Database\MigrationServiceProvider',
+        'Two\Console\Forge\Database\SeedingServiceProvider',
+        'Two\Console\Forge\Localization\ConsoleServiceProvider',
+        'Two\Console\Forge\Notifications\ConsoleServiceProvider',
+        'Two\Console\Forge\Packages\ConsoleServiceProvider',
+        'Two\Console\Forge\Routing\ConsoleServiceProvider',
+        'Two\Console\Forge\Session\ConsoleServiceProvider',
 
         // Les fournisseurs d'applications.
         'App\Providers\AppServiceProvider',
@@ -209,6 +211,10 @@ return array(
         'Template'      => 'Two\Support\Facades\Template',
         'View'          => 'Two\Support\Facades\View',
         'Package'       => 'Two\Support\Facades\Package',
+
+        // The Forensics Console.
+        'Console'       => 'Shared\Forensics\Console',
+
     ),
 
 );
